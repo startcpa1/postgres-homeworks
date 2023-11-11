@@ -1,16 +1,16 @@
 CREATE TABLE employees (
 	employee_id serial PRIMARY KEY,
-	first_name varchar(50) NOT NULL,
-	last_name varchar(50) NOT NULL,
-	title varchar(100) NOT NULL,
+	first_name varchar(50),
+	last_name varchar(50),
+	title varchar(100),
 	birth_date DATE NOT NULL,
-	notes text NOT NULL
+	notes text
 );
 
 CREATE TABLE customers (
 	customer_id varchar(20) PRIMARY KEY,
-	company_name varchar(150) NOT NULL,
-	contact_name varchar(150) NOT NULL
+	company_name varchar(150),
+	contact_name varchar(150)
 );
 
 CREATE TABLE orders (

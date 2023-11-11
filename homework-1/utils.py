@@ -6,8 +6,8 @@ import psycopg2
 
 def get_data_from_csv(filename):
     """Открываем файл, получаем данные, возвращаем список словарей"""
-    path_ = os.path.dirname(__file__)
-    file_path = os.path.join(path_ + '/north_data', filename)
+    file_path = os.path.join(
+        'north_data', filename)
 
     with open(file_path, 'r', encoding='utf-8') as f:
         data = csv.DictReader(f)
