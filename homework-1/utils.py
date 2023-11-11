@@ -14,9 +14,11 @@ def get_data_from_csv(filename):
         return list(data)
 
 
+conn = psycopg2.connect(host='localhost', database='north', user='postgres', password='12345')
+
+
 def fill_table_employees(data):
     """Записываем в таблицу employees данные из списка словарей """
-    conn = psycopg2.connect(host='localhost', database='north', user='postgres', password='12345')
     cur = conn.cursor()
     for el in data:
         cur.execute(
@@ -27,7 +29,6 @@ def fill_table_employees(data):
 
 def fill_table_customers(data):
     """Записываем в таблицу customers данные из списка словарей """
-    conn = psycopg2.connect(host='localhost', database='north', user='postgres', password='12345')
     cur = conn.cursor()
     for el in data:
         cur.execute(
@@ -38,7 +39,6 @@ def fill_table_customers(data):
 
 def fill_table_orders(data):
     """Записываем в таблицу orders данные из списка словарей """
-    conn = psycopg2.connect(host='localhost', database='north', user='postgres', password='12345')
     cur = conn.cursor()
     for el in data:
         cur.execute(
