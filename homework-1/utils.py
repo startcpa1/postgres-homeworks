@@ -14,10 +14,6 @@ def get_data_from_csv(filename):
         return list(data)
 
 
-conn = psycopg2.connect(host='localhost', database='north', user='postgres', password='12345')
-cur = conn.cursor()
-
-
 def fill_table_employees(data, table_name):
     """Записываем в таблицу employees данные из списка словарей """
     conn = psycopg2.connect(host='localhost', database='north', user='postgres', password='12345')
