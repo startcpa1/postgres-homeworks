@@ -1,8 +1,6 @@
 import csv
 import os
 
-import psycopg2
-
 
 def get_data_from_csv(filename):
     """Открываем файл, получаем данные, возвращаем список словарей"""
@@ -14,10 +12,7 @@ def get_data_from_csv(filename):
         return list(data)
 
 
-conn = psycopg2.connect(host='localhost', database='north', user='postgres', password='12345')
-
-
-def fill_table_employees(data):
+def fill_table_employees(conn, data):
     """Записываем в таблицу employees данные из списка словарей """
     cur = conn.cursor()
     for el in data:
@@ -27,7 +22,7 @@ def fill_table_employees(data):
         conn.commit()
 
 
-def fill_table_customers(data):
+def fill_table_customers(conn, data):
     """Записываем в таблицу customers данные из списка словарей """
     cur = conn.cursor()
     for el in data:
@@ -37,7 +32,7 @@ def fill_table_customers(data):
         conn.commit()
 
 
-def fill_table_orders(data):
+def fill_table_orders(conn, data):
     """Записываем в таблицу orders данные из списка словарей """
     cur = conn.cursor()
     for el in data:
